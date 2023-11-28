@@ -5,6 +5,7 @@
 Welcome to the SpaceX Falcon 9 Predictive Model project, the culmination of the IBM Data Science Professional Certificate specialization. This capstone summarizes all the knowledge acquired throughout the specialization.
 
 **Project Background**
+
 SpaceX, a trailblazer in the commercial space age, advertises Falcon 9 rocket launches at $62 million, a substantial cost saving attributed to their first stage reuse capability. This project aims to predict the reuse of the first stage by leveraging public information and machine learning models.
 
 **Questions to be answered**
