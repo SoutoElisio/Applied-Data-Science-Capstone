@@ -1,12 +1,43 @@
 # SpaceX Falcon 9 Predictive Model
 
+## Applied Data Science Capstone
+
+Welcome to the SpaceX Falcon 9 Predictive Model project, the culmination of the IBM Data Science Professional Certificate specialization. This capstone summarizes all the knowledge acquired throughout the specialization.
+
+**Project Background**
+SpaceX, a trailblazer in the commercial space age, advertises Falcon 9 rocket launches at $62 million, a substantial cost saving attributed to their first stage reuse capability. This project aims to predict the reuse of the first stage by leveraging public information and machine learning models.
+
+**Questions to be answered**
+1. How do variables like payload mass, launch site, number of flights, and orbits influence the success of the first stage landing?
+2. Does the rate of successful landings increase over the years?
+3. What is the best algorithm for binary classification in this case?
+
+**Methodology**
+1. **Data Collection Methodology**
+   - Utilizing SpaceX Rest API
+   - Web Scrapping from Wikipedia
+
+2. **Performed Data Wrangling**
+   - Filtering the data
+   - Handling missing values
+   - Utilizing One Hot Encoding for binary classification preparation
+
+3. **Performed Exploratory Data Analysis (EDA)**
+   - Visualization and SQL analysis
+
+4. **Performed Interactive Visual Analytics**
+   - Utilizing Folium and Plotly Dash
+
+5. **Performed Predictive Analysis**
+   - Building, tuning, and evaluating classification models for optimal results
+
 ## Executive Summary
 
-Welcome to the SpaceX Falcon 9 Predictive Model project! Our goal is to revolutionize competitive bidding in the space launch industry by predicting Falcon 9 first stage landing success and estimating launch costs. This predictive model provides crucial insights for companies vying for space launch contracts, allowing them to make informed decisions.
+Our goal is to revolutionize competitive bidding in the space launch industry by predicting Falcon 9 first stage landing success and estimating launch costs. This predictive model provides crucial insights for companies vying for space launch contracts, allowing them to make informed decisions.
 
 ## Introduction
 
-In an era of space exploration, cost-effective and reliable launches are paramount. This project harnesses the power of data science to predict the success of Falcon 9 first stage landings and estimate launch costs. The results aim to empower companies engaged in competitive bidding, offering a strategic edge in the space launch industry.
+This project harnesses the power of data science to predict the success of Falcon 9 first stage landings and estimate launch costs. The results aim to empower companies engaged in competitive bidding, offering a strategic edge in the space launch industry.
 
 ## Data Collection and Wrangling Methodology
 
@@ -47,5 +78,3 @@ In conclusion, this predictive model for Falcon 9 first stage landings and launc
 ## Creative Enhancements and Innovative Insights
 
 Throughout the presentation, creative enhancements were applied to elevate the user experience. Additionally, innovative insights that go beyond conventional analysis were uncovered, providing a unique perspective on factors influencing Falcon 9 success and launch costs. This fusion of creativity and innovation sets our project apart, offering a compelling narrative for stakeholders in the space launch industry.
-
----
