@@ -1,5 +1,3 @@
-Certainly! Here's the formatted code:
-
 ```python
 # Import required libraries
 import pandas as pd
