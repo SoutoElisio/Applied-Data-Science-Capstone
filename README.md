@@ -1,81 +1,92 @@
 # SpaceX Falcon 9 Predictive Model
 
-## Applied Data Science Capstone
+## Background
 
-Welcome to the SpaceX Falcon 9 Predictive Model project, the culmination of the IBM Data Science Professional Certificate specialization. This capstone summarizes all the knowledge acquired throughout the specialization.
+SpaceX, a pioneering force in the space industry, aims to make space travel accessible to all. Notable achievements include sending spacecraft to the International Space Station, launching a satellite constellation for global internet access, and conducting manned missions. SpaceX's cost-effective launches ($62 million per launch) result from the innovative reuse of the first stage of its Falcon 9 rocket, a strategy that significantly reduces costs compared to providers unable to reuse the first stage (costing upwards of $165 million each). Predicting the success of the first stage landing is crucial in determining the launch price. This project utilizes public data and machine learning models to predict whether SpaceX or a competing company can successfully reuse the first stage.
 
-**Project Background**
+## Objectives
 
-SpaceX, a trailblazer in the commercial space age, advertises Falcon 9 rocket launches at $62 million, a substantial cost saving attributed to their first stage reuse capability. This project aims to predict the reuse of the first stage by leveraging public information and machine learning models.
-
-**Questions to be answered**
-1. How do variables like payload mass, launch site, number of flights, and orbits influence the success of the first stage landing?
-2. Does the rate of successful landings increase over the years?
-3. What is the best algorithm for binary classification in this case?
-
-**Methodology**
-1. **Data Collection Methodology**
-   - Utilizing SpaceX Rest API
-   - Web Scrapping from Wikipedia
-
-2. **Performed Data Wrangling**
-   - Filtering the data
-   - Handling missing values
-   - Utilizing One Hot Encoding for binary classification preparation
-
-3. **Performed Exploratory Data Analysis (EDA)**
-   - Visualization and SQL analysis
-
-4. **Performed Interactive Visual Analytics**
-   - Utilizing Folium and Plotly Dash
-
-5. **Performed Predictive Analysis**
-   - Building, tuning, and evaluating classification models for optimal results
+- Explore how payload mass, launch site, number of flights, and orbits impact first-stage landing success.
+- Analyze the rate of successful landings over time.
+- Determine the best predictive model for successful landings (binary classification).
 
 ## Executive Summary
 
-Our goal is to revolutionize competitive bidding in the space launch industry by predicting Falcon 9 first stage landing success and estimating launch costs. This predictive model provides crucial insights for companies vying for space launch contracts, allowing them to make informed decisions.
+This research aims to identify factors influencing successful rocket landings. The following methodologies were employed:
 
-## Introduction
+1. **Data Collection - API:**
+   - Requested data from SpaceX API (rocket launch data).
+   - Decoded responses using `.json()` and converted to a dataframe using `.json_normalize()`.
+   - Requested information about launches using custom functions.
+   - Created a dictionary and dataframe from the data.
+   - Filtered the dataframe to contain only Falcon 9 launches.
+   - Replaced missing values of Payload Mass with calculated `.mean()`.
+   - Exported data to a CSV file.
 
-This project harnesses the power of data science to predict the success of Falcon 9 first stage landings and estimate launch costs. The results aim to empower companies engaged in competitive bidding, offering a strategic edge in the space launch industry.
+2. **Data Collection - Web Scraping:**
+   - Requested data (Falcon 9 launch data) from Wikipedia.
+   - Created a BeautifulSoup object from HTML responses.
+   - Extracted column names from HTML table headers.
+   - Collected data by parsing HTML tables.
+   - Created a dictionary and dataframe from the data.
+   - Exported data to a CSV file.
 
-## Data Collection and Wrangling Methodology
+3. **Data Wrangling:**
+   - Converted outcomes into 1 for a successful landing and 0 for an unsuccessful landing.
 
-Data related to Falcon 9 launches was meticulously gathered and preprocessed. The dataset includes variables such as launch outcomes, landing success, and cost parameters. This methodology ensures the integrity and relevance of the data for robust predictive modeling.
+4. **Exploratory Data Analysis (EDA) with Visualization:**
+   - Created charts to analyze relationships and show comparisons.
 
-## EDA and Interactive Visual Analytics Methodology
+5. **EDA with SQL:**
+   - Queried the data to gain deeper insights.
 
-Exploratory Data Analysis (EDA) is at the core of this approach. Dive deep into data patterns using visualizations, enhancing understanding of the factors influencing landing success and launch costs. Interactive analytics tools provide an immersive experience, enabling users to glean insights intuitively.
+6. **Maps with Folium:**
+   - Created maps to visualize launch sites, view launch outcomes, and assess proximity to geographical markers.
 
-## Predictive Analysis Methodology
+7. **Dashboard with Plotly Dash:**
+   - Created a dashboard with interactive elements.
+   - Included a pie chart showing successful launches and a scatter chart showing Payload Mass vs. Success Rate by Booster Version.
 
-The predictive analysis methodology combines regression and classification techniques. From predicting landing success to estimating launch costs, models have been tailored to address the unique challenges of the space launch industry, with an emphasis on transparency and accuracy for the predictive modeling approach.
+8. **Predictive Analytics:**
+   - Created a NumPy array from the Class column.
+   - Standardized the data with StandardScaler.
+   - Split the data using train_test_split.
+   - Created a GridSearchCV object with cv=10 for parameter optimization.
+   - Applied GridSearchCV on different algorithms: logistic regression, support vector machine (SVC), decision tree, and K-Nearest Neighbor (KNN).
+   - Calculated accuracy on the test data using `.score()` for all models.
+   - Assessed the confusion matrix for all models.
+   - Identified the best model using Jaccard Score, F1 Score, and Accuracy.
 
-## EDA with Visualization Results
+## Results
 
-Compelling slides showcase the visual outcomes of the EDA efforts. Unravel patterns, correlations, and outliers, each providing a visual narrative that aids in understanding the intricate relationships within the data.
+### Exploratory Data Analysis (EDA):
 
-## EDA with SQL Results
+- Launch success has improved over time.
+- KSC LC-39A has the highest success rate among landing sites.
+- Orbits ES-L1, GEO, HEO, and SSO have a 100% success rate.
 
-Given that exploration goes beyond visualization, delve into SQL queries to extract meaningful insights. Detailed slides present SQL-driven results, offering a granular perspective on the dataset and enriching the understanding of Falcon 9 launches.
+### Visualization / Analytics:
 
-## Interactive Map with Folium Results
+- Most launch sites are near the equator, and all are close to the coast.
 
-Leveraging Folium, a map-based visualization tool, interactive slides are present. Explore geographical aspects of Falcon 9 landings and gain spatial insights that contribute to a holistic understanding of launch dynamics.
+### Predictive Analytics:
 
-## Plotly Dash Dashboard Results
-
-The interactive Plotly Dash dashboard delivers dynamic slides. Dive into comprehensive visualizations that encapsulate the essence of our findings, providing an engaging and user-friendly experience.
-
-## Predictive Analysis (Classification) Results
-
-Slides unfold the results of this predictive analysis. From evaluating the model's accuracy to understanding classification outcomes, these slides encapsulate the performance metrics and insights gained from the predictive modeling efforts.
+- All models performed similarly on the test set. The decision tree model slightly outperformed when looking at `.best_score_`.
 
 ## Conclusion
 
-In conclusion, this predictive model for Falcon 9 first stage landings and launch cost estimation is a game-changer for the space launch industry. This project not only meets the specified requirements but also introduces creative elements and innovative insights, paving the way for a new era in competitive bidding and decision-making.
+### Research Findings:
 
-## Creative Enhancements and Innovative Insights
+- Model Performance: The models performed similarly on the test set, with the decision tree model slightly outperforming.
+- Equator Advantage: Most launch sites are near the equator, providing an additional natural boost due to the Earth's rotational speed, reducing fuel and booster costs.
+- Coastal Proximity: All launch sites are close to the coast.
+- Launch Success Trend: Success rates increase over time.
+- KSC LC-39A: Has the highest success rate among launch sites. Achieves a 100% success rate for launches less than 5,500 kg.
+- Orbits: ES-L1, GEO, HEO, and SSO have a 100% success rate.
+- Payload Mass: Across all launch sites, the higher the payload mass (kg), the higher the success rate.
 
-Throughout the presentation, creative enhancements were applied to elevate the user experience. Additionally, innovative insights that go beyond conventional analysis were uncovered, providing a unique perspective on factors influencing Falcon 9 success and launch costs. This fusion of creativity and innovation sets our project apart, offering a compelling narrative for stakeholders in the space launch industry.
+### Additional Considerations:
+
+- Dataset: A larger dataset will help build on predictive analytics results to understand if findings can be generalized to a larger dataset.
+- Feature Analysis / PCA: Additional feature analysis or principal component analysis should be conducted to see if it can help improve accuracy.
+- XGBoost: A powerful model not utilized in this study. It would be interesting to see if it outperforms other classification models.
